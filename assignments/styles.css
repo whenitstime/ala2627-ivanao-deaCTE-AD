@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 [data-theme="midnight"] {
-  --bg: #0c1113;
-  --surface: rgba(24, 34, 36, .72);
-  --text: #f4f4ee;
-  --muted: #869391;
-  --accent: #7de7df;
-  --accent-2: #ff856b;
-  --line: rgba(214, 239, 234, .16);
+  --bg: #140d18;
+  --surface: rgba(43, 24, 48, .72);
+  --text: #f8eee9;
+  --muted: #b39aa9;
+  --accent: #d9a0d2;
+  --accent-2: #dc6470;
+  --line: rgba(245, 204, 224, .18);
 }
 
 [data-theme="paper"] {
@@ -108,7 +108,7 @@ body::after {
 
 body::before {
   inset: 0;
-  background: linear-gradient(125deg, var(--bg), transparent 52%, rgba(255, 133, 107, .07));
+  background: linear-gradient(125deg, var(--bg), transparent 52%, color-mix(in srgb, var(--accent-2) 10%, transparent));
 }
 
 body::after {
@@ -601,17 +601,30 @@ footer {
   content: '';
 }
 
-h1 { font-size: clamp(3.5rem, 9vw, 6.8rem); }
+h1 {
+  font-size: clamp(3.5rem, 9vw, 6.8rem);
+}
 
 .card {
   min-height: 236px;
   box-shadow: 0 24px 70px rgba(0, 0, 0, .2), inset 0 1px 0 rgba(255, 255, 255, .06);
 }
 
-.card:nth-child(2) { transform: translateY(18px); }
-.card:nth-child(2).is-in { transform: translateY(18px); }
-.card:nth-child(3) { background: linear-gradient(145deg, color-mix(in srgb, var(--accent-2) 10%, var(--surface)), var(--surface)); }
-.card:nth-child(2):hover { transform: translateY(12px); }
+.card:nth-child(2) {
+  transform: translateY(18px);
+}
+
+.card:nth-child(2).is-in {
+  transform: translateY(18px);
+}
+
+.card:nth-child(3) {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--accent-2) 10%, var(--surface)), var(--surface));
+}
+
+.card:nth-child(2):hover {
+  transform: translateY(12px);
+}
 
 blockquote {
   position: relative;
@@ -633,9 +646,30 @@ blockquote::before {
     min-height: 0;
   }
 
-  .hero::after { right: 24px; bottom: 25px; }
+  .hero::after {
+    right: 24px;
+    bottom: 25px;
+  }
 
   .card:nth-child(2),
   .card:nth-child(2).is-in,
-  .card:nth-child(2):hover { transform: none; }
+  .card:nth-child(2):hover {
+    transform: none;
+  }
+}
+
+/* Keep the default profile language serif, including utility labels. */
+.controls-label,
+.control-name,
+.eyebrow,
+.hero::before,
+.now-k,
+footer {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  letter-spacing: .02em;
+}
+
+.pills button,
+.picker button {
+  font-family: var(--face);
 }
